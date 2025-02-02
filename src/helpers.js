@@ -40,7 +40,7 @@ export const MEDIUM_BREAKPOINT = 'medium';
 export const LARGE_BREAKPOINT = 'large';
 
 export const checkScreenSize = (width) => {
-  if (width <= 380) return SMALL_BREAKPOINT;
+  if (width <= 550) return SMALL_BREAKPOINT;
   if (width <= 768) return MEDIUM_BREAKPOINT;
   return LARGE_BREAKPOINT;
 }
