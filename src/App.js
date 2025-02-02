@@ -9,17 +9,11 @@ import './styles/App.scss';
 
 function App() {
   const [screenWidth, setScreenWidth] = useState('');
-  const [mobileMenuIsOpen, setMobileMenuIsOpen] = useState(false);
-
-  const handleMobileMenu = () => {
-    setMobileMenuIsOpen(value => !value);
-  };
 
   const updateScreenWidth = (width) => {
     const size = checkScreenSize(width);
     if ( screenWidth !== size) {
       setScreenWidth(size);
-      setMobileMenuIsOpen(false);
     }
   };
 
@@ -43,7 +37,8 @@ function App() {
           <img src={logoIcon} alt='logo' className='logo__image' />
         </a>
         <div
-          className={`nav__menu ${screenWidth === SMALL_BREAKPOINT ? 'nav__menu-mobile' : ''} ${mobileMenuIsOpen ? 'nav__menu-mobile--active' : ''}`}
+          id="navbar"
+          className={`nav__menu ${screenWidth === SMALL_BREAKPOINT ? 'nav__menu-mobile' : ''}`}
         >
           <ul className='nav__menu-list'>
             {menuItems.map(item => (
@@ -53,16 +48,16 @@ function App() {
                 </a>
               </li>
             ))}
+            <a href='#' className='nav__close-link'>
+              <img src={closeIcon} alt='close-menu' />
+            </a>
           </ul>
           {ShapeIcon()}
         </div>
         <div className='nav__mobile-menu'>
-          <button
-            className='nav__mobile-button'
-            onClick={handleMobileMenu}
-          >
-            <img src={mobileMenuIsOpen ? closeIcon : burgerIcon} alt='mobile-menu' />
-          </button>
+          <a href='#navbar'>
+            <img src={burgerIcon} alt='mobile-menu' />
+          </a>
         </div>
       </nav>
       <header className='header container'>

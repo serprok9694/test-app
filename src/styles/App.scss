@@ -76,7 +76,8 @@ main {
 			}
 		}
 		&-mobile {
-			display: none;
+			transform: translateY(-100%);
+			transition: transform 0.2s ease;
 			&--active {
 				display: flex;
 			}
@@ -103,6 +104,9 @@ main {
 				}
 			}
 		}
+	}
+	&__close-link {
+		display: none;
 	}
 	&__mobile-menu {
 		display: none;
@@ -346,11 +350,14 @@ main {
 			background-color: $backgroundPrimaryColor;
 			left: 0;
 			right: 0;
-			top: 4rem;
+			top: 0;
 			bottom: 0;
 			flex-direction: column;
 			align-items: center;
-			padding-left: 1.25rem;
+			padding-top: 2rem;
+			&#navbar:target {
+				transform: translateY(0);
+			}
 			&-list {
 				flex-direction: column;
         align-items: center;
@@ -367,6 +374,12 @@ main {
 		}
 		&__mobile-menu {
 			display: block;
+		}
+		&__close-link {
+			display: block;
+			position: absolute;
+			top: 0.75rem;
+			right: 1.25rem;
 		}
 	}
 }
