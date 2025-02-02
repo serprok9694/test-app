@@ -2,7 +2,6 @@ import { useEffect, useState } from 'react';
 import { checkScreenSize, LARGE_BREAKPOINT, menuItems, offers, SMALL_BREAKPOINT } from './helpers';
 import { ShapeIcon } from "./shapeIcon";
 import logoIcon from "./images/logo.svg";
-// import shape from "./images/shape.svg";
 import rocketIcon from "./images/rocket.svg";
 import burgerIcon from "./images/burger.svg";
 import closeIcon from "./images/close.svg";
@@ -55,7 +54,6 @@ function App() {
               </li>
             ))}
           </ul>
-          {/* <img src={shape} alt='shape' /> */}
           {ShapeIcon()}
         </div>
         <div className='nav__mobile-menu'>
