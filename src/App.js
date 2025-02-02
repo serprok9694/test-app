@@ -39,7 +39,7 @@ function App() {
 
   return (
     <div className="App">
-      <nav className='nav'>
+      <nav className='nav container'>
         <a href='/' className='nav__logo' >
           <img src={logoIcon} alt='logo' className='logo__image' />
         </a>
@@ -67,7 +67,7 @@ function App() {
           </button>
         </div>
       </nav>
-      <header className='header'>
+      <header className='header container'>
         <div className='header__inner'>
           <h1 className='header__title'>Discover the vast expanses of <span className='text--colored'>space</span></h1>
           <p className='header__description'>Where the possibilities are <span className='text--colored'>endless!</span></p>
@@ -76,7 +76,7 @@ function App() {
           </a>
         </div>
       </header>
-      <main>
+      <main className='container'>
         <section className='offers'>
           <h2 className='offers__title'>Offers</h2>
           <div className='offers__list'>
@@ -103,7 +103,7 @@ function App() {
           <a className='enticement__link' href='/'>Read more</a>
         </section>
       </main>
-      <footer className='footer'>
+      <footer className='footer container'>
         <div className='footer__inner'>
           <a href='/' className='footer__logo'>
             <img src={rocketIcon} alt='rocket' className='logo__image' />

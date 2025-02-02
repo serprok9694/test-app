@@ -1,23 +1,26 @@
 @import "./fonts.scss";
 @import "./constants.scss";
+@import "./mixins.scss";
+
 
 body {
-	// font-size: 100%;
 	font-family: $primaryFontRegular;
 }
 
 main {
-	padding: 0 80px;
 	background-color: $backgroundSecondaryColor;
 }
 
+.container {
+	padding-left: 5rem;
+	padding-right: 5rem;
+}
+
 .button {
-	// font-size: 22px;
-	// line-height: 26px;
-	font-size: 2.2vw;
-	line-height: 2.5vw;
+	@include fluid-text(22, 16);
+	line-height: 1.2em;
 	border-radius: 100px;
-	padding: 14px 40px;
+	padding: 0.875rem 2.5rem;
 	transition: .3s;
 	font-family: $primaryFontExtraBold;
 	white-space: nowrap;
@@ -38,7 +41,8 @@ main {
 }
 
 .nav {
-	padding: 24px 80px;
+	padding-top: 1.5rem;
+	padding-bottom: 1.5rem;
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
@@ -59,9 +63,9 @@ main {
 		&-link {
 			font-family: $primaryFontExtraBold;
 			color: $textPrimaryColor;
-			font-size: 18px;
-			line-height: 21px;
-			margin-right: 50px;
+			@include fluid-text(18, 16);
+			line-height: 1.2em;
+			margin-right: 3.125rem;
 			text-decoration: none;
 			transition: .3s;
 			cursor: pointer;
@@ -77,9 +81,17 @@ main {
 				display: flex;
 			}
 		}
-		svg {
+		.shape-icon {
 			defs {
 				display: none;
+				stop {
+					&:first-child {
+						stop-color: $secondaryColor;
+					}
+					&:last-child {
+						stop-color: $primaryColor;
+					}
+				}
 			}
 			&:hover {
 				cursor: pointer;
@@ -105,62 +117,47 @@ main {
 }
 
 .header {
-	// background-image: image-set(
-	// 	url('../images/headerBackground.avif') type('image/avif'),
-	// 	url('../images/headerBackground.jpg') type('image/jpg'),
-	// );
 	background-image: url('../images/earth.png'), linear-gradient(to left, #00000000, #0F1420C9), url('../images/headerBackground.jpg');
 	background-size: auto, auto, cover;
   background-repeat: no-repeat, no-repeat, no-repeat;
 	background-position: center right 90px, center, center;
 	&__inner {
-		margin-left: 80px;
-		padding: 90px 0 120px;
+		padding: 5.625rem 0 7.5rem;
 		max-width: 50vw;
 	}
 	&__title {
-		// line-height: 72px;
-		// font-size: 72px;
-		font-size: 6vw;
-		line-height: 6vw;
+		@include fluid-text(72, 36);
+		line-height: 1em;
 		font-family: $primaryFontExtraBold;
 		color: $textPrimaryColor;
 		margin: 0;
-		margin-bottom: 22px;
+		margin-bottom: 1.375rem;
 		.text--colored {
 			color: $primaryColor;
 		}
 	}
 	&__description {
-		// font-size: 32px;
-		// line-height: 38px;
-		font-size: 3vw;
-		line-height: 3vw;
+		@include fluid-text(32, 16);
+		line-height: 1.2em;
 		font-family: $primaryFontExtraBold;
 		color: $textPrimaryColor;
 		margin: 0;
-		margin-bottom: 22px;
+		margin-bottom: 1.375rem;
 		.text--colored {
 			color: $secondaryColor;
 		}
 	}
-	&__link {
-
-	}
-	&__button {
-
-	}
 }
 
 .offers {
-	padding: 60px 0 20px;
+	padding: 3.75rem 0 1.25rem;
 	&__title {
 		color: $textPrimaryColor;
 		font-family: $primaryFontExtraBold;
-		font-size: 32px;
-		line-height: 38px;
+		@include fluid-text(32, 18);
+		line-height: 1.2em;
 		margin: 0;
-		margin-bottom: 40px;
+		margin-bottom: 2.5rem;
 	}
 	&__list {
 		display: flex;
@@ -182,17 +179,13 @@ main {
 		&.item--wide {
 			width: 100%;
 			h3 {
-				// font-size: 74px;
-				// line-height: 74px;
-				font-size: 6vw;
-				line-height: 6vw;
-				max-width: 630px;
+				@include fluid-text(74, 40);
+				line-height: 1em;
+				max-width: 65%;
 			}
 			p {
-				// font-size: 26px;
-				// line-height: 31px;
-				font-size: 2.3vw;
-				line-height: 2.5vw;
+				@include fluid-text(26, 16);
+				line-height: 1.2em;
 			}
 
 		}
@@ -200,62 +193,52 @@ main {
 			color: $textPrimaryColor;
 			font-family: $primaryFontExtraBold;
 			margin: 0;
-			margin-bottom: 22px;
-			// font-size: 46px;
-			// line-height: 46px;
-			font-size: 4vw;
-			line-height: 4vw;
-			max-width: 280px;
+			@include fluid-text(46, 40);
+			line-height: 1em;
+			margin-bottom: 1.375rem;
+			max-width: 75%;
 		}
 		&-description {
 			color: $textPrimaryColor;
 			font-family: $primaryFontExtraBold;
 			margin: 0;
-			margin-bottom: 22px;
-			// font-size: 24px;
-			// line-height: 28px;
-			font-size: 2.1vw;
-			line-height: 2.3vw;
-		}
-		&-link {
-
-		}
-		&-button {
-
+			@include fluid-text(24, 16);
+			line-height: 1.2em;
+			margin-bottom: 1.375rem;
 		}
 	}
 }
 
 .enticement {
-	padding-bottom: 60px;
+	padding-bottom: 3.75rem;
 	&__title {
 		color: $textPrimaryColor;
 		font-family: $primaryFontExtraBold;
-		font-size: 32px;
-		line-height: 38px;
 		margin: 0;
-		margin-bottom: 17px;
+		@include fluid-text(32, 18);
+		line-height: 1.2em;
+		margin-bottom: 1rem;
 	}
 	&__description {
 		color: rgba($textPrimaryColor, .6);
 		font-family: $primaryFontExtraBold;
-		font-size: 20px;
-		line-height: 24px;
 		margin: 0;
-		margin-bottom: 17px;
+		@include fluid-text(20, 14);
+		line-height: 1.2em;
+		margin-bottom: 1rem;
 	}
 	&__link {
 		color: $secondaryColor;
 		font-family: $primaryFontExtraBold;
-		font-size: 20px;
-		line-height: 24px;
+		@include fluid-text(20, 14);
+		line-height: 1.2em;
 		text-decoration: none;
 	}
 }
 
 .footer {
 	background-color: $backgroundPrimaryColor;
-	padding: 0 80px 20px;
+	padding-bottom: 1.25rem;
 	display: flex;
 	justify-content: center;
 	align-items: center;
@@ -270,29 +253,28 @@ main {
 	&__text {
 		color: $secondaryColor;
 		font-family: $primaryFontExtraBold;
-		font-size: 18px;
-		line-height: 28px;
+		@include fluid-text(18, 16);
+		line-height: 1.6em;
 		text-align: center;
 	}
 }
 
 @media(max-width: $mediumBreakpoint) {
-	main {
-		padding: 0 30px;
-	}
-	.button {
-		padding: 7px 5vw;
+	.container {
+		padding-left: 1.875rem;
+		padding-right: 1.875rem;
 	}
 	.nav {
-		padding: 28px 30px;
+		padding-top: 1.75rem;
+		padding-bottom:  1.75rem;
 		&__logo {
 			.logo__image {
-				width: 71px;
+				width: 4.4rem;
 				height: auto;
 			}
 		}
 		&__menu-link {
-			margin-right: 30px;
+			margin-right: 1.875rem;
 		}
 
 	}
@@ -300,47 +282,57 @@ main {
 		background-position: top 26px right -85px, center, center;
 		background-size: 42%, auto, cover;
 		&__inner {
-			margin-left: 30px;
-			padding: 100px 0;
-			max-width: 400px;
+			padding: 6.25rem 0;
+			max-width: 55vw;
 		}
 	}
 
 	.offers {
-		padding: 55px 0 25px;
+		padding: 3.44rem 0 1.56rem;
 		&__title {
-			font-size: 24px;
-			line-height: 29px;
-			margin-bottom: 30px;
+			margin-bottom: 1.875rem;
 		}
 		&__item {
 			border-radius: 10px;
-			padding: 14vw 26px 26px;
 			justify-content: flex-end;
-			margin-bottom: 30px;
-			width: calc(50% - 67px);
+			padding: 6.7rem 1.625rem 1.625rem;
+			margin-bottom: 1.875rem;
+			width: calc(50% - 4.2rem);
 			&-title {
-				font-size: 5.2vw;
-				line-height: 5.2vw;
+				max-width: 100%;
 			}
 		}
 	}
 
 	.enticement {
-		padding-bottom: 55px;
+		padding-bottom: 3.44rem;
 		&__title {
-			font-size: 24px;
-			line-height: 29px;
-			margin-bottom: 13px;
+			margin-bottom: 0.8125rem;
 		}
 		&__description {
-			font-size: 16px;
-			line-height: 19px;
-			margin-bottom: 20px;
+			margin-bottom: 1.25rem;
 		}
-		&__link {
-			font-size: 16px;
-			line-height: 19px;
+	}
+}
+
+@media(max-width: 550px) {
+	.button {
+		padding: 0.4375rem 2.5rem;
+	}
+	.header {
+		background-position: top -100px left 20px, center, center;
+		background-size: 70vw, auto, cover;
+		&__inner {
+			max-width: 100%;
+			width: 100%;
+			text-align: center;
+			padding: 15.625rem 0 2.75rem;
+		}
+	}
+	.offers {
+		&__item {
+			width: 100%;
+			padding: 2.68rem 1.625rem 2.5rem;
 		}
 	}
 }
@@ -348,29 +340,29 @@ main {
 
 @media(max-width: $smallBreakpoint) {
 	.nav {
-		padding: 12px 20px;
+		padding: 0.75rem 1.25rem;
 		&__menu {
 			position: absolute;
 			background-color: $backgroundPrimaryColor;
 			left: 0;
 			right: 0;
-			top: 64px;
+			top: 4rem;
 			bottom: 0;
 			flex-direction: column;
 			align-items: center;
-			padding-left: 20px;
+			padding-left: 1.25rem;
 			&-list {
 				flex-direction: column;
         align-items: center;
 			}
 			&-item {
-				padding: 14px 0;
+				padding: 0.875rem 0;
 			}
 			&-link {
 				margin-right: 0;
 			}
-			svg {
-				margin-top: 14px;
+			.shape-icon {
+				margin-top: 0.875rem;
 			}
 		}
 		&__mobile-menu {
